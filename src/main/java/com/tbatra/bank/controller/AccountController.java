@@ -9,12 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- *
- *
- */
-
 @RestController
 @RequestMapping("api/accounts")
 public class AccountController {
@@ -25,19 +19,19 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-    // Add account api endpoint
+    // API endpoint to create an account.
     @PostMapping()
     public ResponseEntity<AccountDTO> addAccount(@RequestBody AccountDTO accountDTO) {
         return new ResponseEntity<>(accountService.createAccount(accountDTO), HttpStatus.CREATED);
     }
 
-    // Get account api endpoint
+    // API endpoint to fetch an account using id.
     @GetMapping("/{id}")
     public ResponseEntity<AccountDTO> getAccount(@PathVariable Long id) {
         return ResponseEntity.ok(accountService.getAccountbyId(id));
     }
 
-    // Deposit amount api endpoint
+    // API endpoint to deposit amount into an account.
     @PutMapping("/{id}/deposit")
     public ResponseEntity<AccountDTO> depositAmount(@PathVariable Long id,
                                                     @RequestBody Map<String, Double> requestMap) {
@@ -48,7 +42,7 @@ public class AccountController {
         return ResponseEntity.ok(accountDTO);
     }
 
-    // Withdraw amount api endpoint
+    // API endpoint to withdraw from an account.
     @PutMapping("/{id}/withdraw")
     public ResponseEntity<AccountDTO> withdrawAmount(@PathVariable Long id,
                                                     @RequestBody Map<String, Double> requestMap) {
@@ -59,7 +53,7 @@ public class AccountController {
         return ResponseEntity.ok(accountDTO);
     }
 
-    // Api endpoint to get a list of all accounts
+    // API endpoint to get a list of all accounts
     @GetMapping
     public ResponseEntity<List<AccountDTO>> getAllAccounts() {
 
@@ -68,7 +62,7 @@ public class AccountController {
         return ResponseEntity.ok(accountDTOs);
     }
 
-    // Api endpoint to delete a account
+    // API endpoint to delete a account
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteAccount(@PathVariable Long id) {
         return ResponseEntity.ok(accountService.deleteAccount(id));

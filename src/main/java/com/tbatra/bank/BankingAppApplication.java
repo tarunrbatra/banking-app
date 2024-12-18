@@ -8,13 +8,11 @@ public class BankingAppApplication {
 
 	public static void main(String[] args) {
 
+		System.out.println("###################################");
+		System.out.println("####### Banking Application #######");
+		System.out.println("###################################");
+
 		SpringApplication.run(BankingAppApplication.class, args);
-
-		System.out.println("###################################");
-
-		System.out.println("#### Hello BankingAppApplication ####");
-
-		System.out.println("###################################");
 
 	}
 

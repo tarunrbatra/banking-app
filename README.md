@@ -14,6 +14,7 @@ This is a simple Banking Application built in Java, designed to manage customer 
 - Java
 - Spring Boot
 - RESTful API
+- MySQL Database
 
 ## REST Endpoints
 
